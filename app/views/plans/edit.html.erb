@@ -23,40 +23,21 @@
             <div class="bubble">
               <div class="form-group">
                 <h5><%= f.label :結婚はしたいですか？, class: 'text-gray' %></h5>
-                  <ul class="check-list">
-                    <li class="check-item">
-                      <%= f.radio_button :marriage, "する" %>する
-                    </li>
-                    <li class="check-item">
-                      <%= f.radio_button :marriage, "しない" %>しない
-                    </li>
-                    <li class="check-item">
-                      <%= f.radio_button :marriage, "した" %>既婚
-                    </li>
-                    <li class="check-item">
-                      <%= f.radio_button :marriage, "未定" %>わからない
-                    </li>
-                  </ul>
+                  <div class="form-select">
+                    <%= f.select :marriage, Plan.marriages.keys.to_a, {} %>
+                  </div>
               </div>
               <div class="form-group">
                 <h5><%= f.label :何歳で結婚したいですか？, class: 'text-gray' %></h5>
                 <div class="form-select">
-                  <%= f.select :when_marriage,[["20~24歳", 1], ["25~29歳", 2], ["30~34歳", 3], ["35~39歳", 4], ["40~44歳", 5], ["45~49歳", 6], ["50~54歳", 7], ["55~59歳", 8],["60~64歳", 9], ["65歳~", 10], ["結婚しない", 0]] %>
+                  <%= f.select :when_marriage, Plan.when_marriages.keys.to_a, {} %>
                 </div>
               </div>
               <div class="form-group">
                 <h5><%= f.label :結婚式はしますか？, class: 'text-gray' %></h5>
-                <ul class="check-list">
-                  <li class="check-item">
-                    <%= f.radio_button :wedding, "する" %>する
-                  </li>
-                  <li class="check-item">
-                    <%= f.radio_button :wedding, "しない" %>しない
-                  </li>
-                  <li class="check-item">
-                    <%= f.radio_button :wedding, "未定" %>わからない
-                  </li>
-                </ul>
+                <div class="form-select">
+                  <%= f.select :wedding, Plan.weddings.keys.to_a, {} %>
+                </div>
               </div>
             </div>
           </div>
@@ -73,19 +54,19 @@
               <div class="form-group">
                 <h5><%= f.label :子どもは何人ほしいですか？, class: 'text-gray' %></h5>
                 <div class="form-select">
-                  <%= f.select :sons, [["1人", 1], ["2人", 2], ["3人", 3], ["4人", 4], ["5人", 5], ["6人", 6], ["つくらない", 0], ["わからない", 7] ] %>
+                  <%= f.select :sons, Plan.sons.keys.to_a, {} %>
                 </div>
               </div>
               <div class="form-group">
-                <h5><%= f.label :第一子はいつ欲しいですか？, class: 'text-gray' %></h5>
+                <h5><%= f.label :第一子はいつごろ欲しいですか？, class: 'text-gray' %></h5>
                 <div class="form-select">
-                  <%= f.select :first_son, [["20~24歳", 1], ["25~29歳", 2], ["30~34歳", 3], ["35~39歳", 4], ["40~44歳", 5], ["45~49歳", 6], ["50~54歳", 7], ["55~59歳", 8],["60~64歳", 9], ["65歳~", 10], ["つくらない", 0] ] %>
+                  <%= f.select :when_first_son, Plan.when_first_sons.keys.to_a, {} %>
                 </div>
               </div>
               <div class="form-group">
-                <h5><%= f.label :末子はいつ欲しいですか？, class: 'text-gray' %></h5>
+                <h5><%= f.label :末子はいつごろ欲しいですか？, class: 'text-gray' %></h5>
                 <div class="form-select">
-                  <%= f.select :last_son, [["20~24歳", 1], ["25~29歳", 2], ["30~34歳", 3], ["35~39歳", 4], ["40~44歳", 5], ["45~49歳", 6], ["50~54歳", 7], ["55~59歳", 8],["60~64歳", 9], ["65歳~", 10], ["つくらない", 0] ] %>
+                  <%= f.select :when_last_son, Plan.when_last_sons.keys.to_a, {} %>
                 </div>
               </div>
             </div>
@@ -101,22 +82,14 @@
             <div class="bubble">
               <div class="form-group">
                 <h5><%= f.label :住宅の購入予定はありますか？, class: 'text-gray' %></h5>
-                <ul class="check-list">
-                  <li class="check-item">
-                    <%= f.radio_button :myhome, "買う" %>ある
-                  </li>
-                  <li class="check-item">
-                    <%= f.radio_button :myhome, "買わない" %>ない
-                  </li>
-                  <li class="check-item">
-                    <%= f.radio_button :myhome, "0" %>わからない
-                  </li>
-                </ul>
+                <div class="form-select">
+                  <%= f.select :myhome, Plan.myhomes.keys.to_a, {} %>
+                </div>
               </div>
               <div class="form-group">
-                <h5><%= f.label :いつ購入しますか？, class: 'text-gray' %></h5>
+                <h5><%= f.label :いつごろ購入しますか？, class: 'text-gray' %></h5>
                 <div class="form-select">
-                  <%= f.select :when_myhome, [["20~24歳", 1], ["25~29歳", 2], ["30~34歳", 3], ["35~39歳", 4], ["40~44歳", 5], ["45~49歳", 6], ["50~54歳", 7], ["55~59歳", 8],["60~64歳", 9], ["65歳~", 10], ["買わない", 0]] %>
+                  <%= f.select :when_myhome, Plan.when_myhomes.keys.to_a, {} %>
                 </div>
               </div>
             </div>
@@ -134,7 +107,7 @@
               <div class="form-group">
                 <h5><%= f.label :あなたは何年生まれですか？, class: 'text-gray' %></h5>
                 <div class="form-select">
-                  <%= f.select :birth,[1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000] %>
+                  <%= f.select :birth_year, Plan.birth_years.keys.to_a, {} %>
                 </div>
               </div>
               <div class="form_group">

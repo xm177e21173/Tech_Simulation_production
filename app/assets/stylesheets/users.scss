@@ -176,6 +176,8 @@
     }
   }
   
+  
+  
   .title-area {
     border-bottom: 1px solid rgba(0,0,0,0.3);
     background-color: rgba(0,0,0,0.2);
@@ -190,5 +192,243 @@
   
   .text-left {
     padding-left: 20px;
+  }
+}
+
+.cal-show-wrapper {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background-color: #fafafa;
+  
+  .submit {
+    margin-bottom: 20px;
+  }
+}
+
+.cal-title {
+  background: linear-gradient(to right, rgba(0,0,0,0.2), white);
+  position: relative;
+  height: 250px;
+  margin: 20px 0 20px 0;
+  
+  .left-contents {
+    padding: 20px 0 0 20px;
+    
+    h1 {
+      margin-bottom: 25px;
+    }
+    
+    p {
+      margin-left: 20px;
+    }
+  }
+  
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 250px;
+  }
+}
+
+.graph-title {
+  padding: 0 0 0 30px;
+  margin: 0 0 20px 0;
+}
+
+.graph {
+  padding: 0 0 0 0;
+}
+
+.graph-description {
+  margin-top: 20px;
+  padding: 0;
+  
+  .right-contents {
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin-bottom: 5px;
+    height: 180px;
+    
+    .title-area {
+      height: 20px;
+      background-color: rgba(0,0,0,0.2);
+      padding: 4px 0 0 0;
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      border-radius: 10px 10px 0 0;
+    }
+    
+    .des {
+      padding: 8px 0 0 0;
+      
+      .des-area {
+        margin: 0 0 8px 0 ;
+        padding: 0 10px 0 10px;
+      }
+    }
+    
+    h6 {
+        margin: 0 0 0 15px;
+      }
+      
+      p {
+        margin: 3px 0 0 20px;
+        font-size: 12px;
+      }
+  }
+}
+
+.graph-reference-bubble {
+  position: relative;
+  background: rgba(0,0,0,0.1);
+  border-radius: 15px;
+  box-sizing: border-box;
+  width: 70%;
+  padding: 20px 0 0 0;
+  
+  .text-area {
+    text-align: left;
+    padding-left: 30px;
+    
+    h4 {
+      margin: 0 0 10px 20px;
+    }
+  }
+  
+  .single-column {
+    float: left;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,0.2);
+    background-color: white;
+    border-radius: 15px;
+    text-align: left;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    
+    .title-area {
+      height: 20px;
+      background-color: rgba(0,0,0,0.2);
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      border-radius: 10px 10px 10px 10px;
+      text-align: center;
+      padding-top: 4px;
+      
+      h6 {
+        margin: 0 0 0 0;
+      }
+    }
+    
+    .des-area {
+      padding: 10px 15px 0 15px;
+    }
+  }
+}
+
+.graph-reference-bubble::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-style: solid;
+  border-width: 0px 20px 20px 20px;
+  border-color: transparent transparent rgba(0,0,0,0.1) transparent;
+}
+
+.blue {
+  color: rgb(54,162,235);
+}
+
+.red {
+  color: rgb(255, 99, 132);
+}
+
+.green {
+  color: rgb(100, 170, 100);
+}
+
+.bottom-contents {
+  height: 540px;
+  width: 100%;
+  border: 1px solid rgba(0,0,0,0.3);
+  padding: 0 0 0 0;
+  background-color: white;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  
+  .des-area {
+    width: 100%;
+    padding: 0 0 0 50px;
+    position: relative;
+    margin-bottom: 20px;
+    
+    .bottun-area {
+    position: absolute;
+    right: 3.5%;
+    bottom: 5%;
+    
+    .btn-flat-border {
+      display: inline-block;
+      padding: 0.3em 1em;
+      text-decoration: none;
+      color: rgba(0,0,0,0.4);
+      border: solid 1px rgba(0,0,0,0.5);
+      border-radius: 3px;
+      transition: .4s;
+      background: rgba(0,0,0,0.1);
+    }
+    
+    .btn-flat-border:hover {
+      background: rgba(0,0,0,0.5);
+      color: white;
+    }
+  }
+    
+    h6 {
+      margin: 0 0 0 0;
+    }
+    
+    p {
+      margin: 0 0 0 0;
+    }
+    
+    img {
+      height: 35px;
+    }
+    
+    .icon {
+      display: inline-block;
+      margin: 0 10px 0 0;
+    }
+      
+    .contents {
+      display: inline-block;
+    }
+    
+    .single-contents-plan {
+      margin: 9px 0 0 0;
+    }
+    
+    .single-contents-cost {
+      display: inline-block;
+      width: 35%;
+      margin: 22px 0 0 0;
+    }
+    
+    .single-contents-target {
+      margin: 20px 0 20px 0;
+      display: inline-block;
+      width: 30%;
+      
+      .bottom {
+        margin: 0 0 0 50px;
+        color: #333333;
+        font-size: 14px;
+      }
+    }
   }
 }

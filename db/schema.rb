@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_01_124138) do
+ActiveRecord::Schema.define(version: 2020_03_01_093716) do
 
   create_table "cals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -52,33 +52,33 @@ ActiveRecord::Schema.define(version: 2020_02_01_124138) do
   end
 
   create_table "costs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "edu_cost"
-    t.integer "old_cost"
-    t.integer "target"
-    t.integer "others"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "marriage_cost"
-    t.integer "myhome_cost"
+    t.integer "user_id"
+    t.integer "edu_cost", default: 0
+    t.integer "old_cost", default: 0
+    t.integer "target", default: 0
+    t.integer "others", default: 0
+    t.integer "marriage_cost", default: 0
+    t.integer "myhome_cost", default: 0
   end
 
   create_table "plans", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "marriage"
-    t.integer "sons"
-    t.integer "birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "retirement"
-    t.integer "severance"
-    t.integer "when_marriage"
-    t.string "wedding"
-    t.integer "first_son"
-    t.integer "last_son"
-    t.string "myhome"
-    t.integer "when_myhome"
-    t.integer "saving"
+    t.integer "marriage", default: 9999
+    t.integer "when_marriage", default: 9999
+    t.integer "wedding", default: 9999
+    t.integer "sons", default: 9999
+    t.integer "when_first_son", default: 9999
+    t.integer "when_last_son", default: 9999
+    t.integer "myhome", default: 9999
+    t.integer "when_myhome", default: 9999
+    t.integer "birth_year", default: 9999
+    t.integer "retirement_year", default: 9999
+    t.integer "saving", default: 0
+    t.integer "severance", default: 0
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

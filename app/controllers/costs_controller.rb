@@ -1,7 +1,10 @@
 class CostsController < ApplicationController
+  
   def new
-    set_cost
-    redirect_to new_cal_path
+    @cost = Cost.new
+    @cost.user_id = session[:user_id]
+    @cost.save
+    redirect_to user_path(@cost.user_id), success: 'ユーザー登録しました'
   end
   
   def edit
@@ -29,19 +32,5 @@ class CostsController < ApplicationController
       :marriage_cost,
       :myhome_cost
       )
-  end
-  
-  # 初期値の設定
-  def set_cost
-    @cost = Cost.new(
-      user_id: session[:user_id],
-      edu_cost: 0,
-      old_cost: 0,
-      target: 0,
-      others: 0,
-      marriage_cost: 0,
-      myhome_cost: 0
-      )
-    @cost.save
   end
 end

@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-md-4 cost-edit-contents">
         <!--こどもをつくらないときの表示-->
-        <% if @plan.sons == 0 %>
+        <% if @plan.read_attribute_before_type_cast(:sons) == 0 %>
           <div class="text-thin"> 
             <div class="top-contents">
               <h3>教育資金</h3>
@@ -40,7 +40,7 @@
               </div>
             </div>
           </div>
-          <% elsif @plan.sons == 7 %>
+          <% elsif @plan.read_attribute_before_type_cast(:sons) == 7 %>
             <div class="top-contents">
               <h3>教育資金</h3>
               <h2>約<span>1050</span>万円/人</h2>
@@ -66,8 +66,8 @@
         <% else %>
           <div class="top-contents">
             <h3>教育資金</h3>
-            <h2>約<span><%= @plan.sons*1050%></span>万円/<%= @plan.sons %>人</h2>
-            <p>子ども<%= @plan.sons %>人の総額</p>
+            <h2>約<span><%= @plan.read_attribute_before_type_cast(:sons)*1050 %></span>万円/<%= @plan.sons %></h2>
+            <p>子ども<%= @plan.sons %>の総額</p>
             <p>（幼稚園から高校まで公立、</p>
             <p>大学のみ私立の場合）</p>
           </div>
@@ -90,7 +90,7 @@
     
       <div class="col-md-4 cost-edit-contents">
         <!--結婚しない場合の表示-->
-        <% if @plan.marriage == "しない" %>
+        <% if @plan.read_attribute_before_type_cast(:marriage) == 2 %>
           <div class="top-contents">
             <h3>老後の生活費</h3>
             <h2>約<span>960</span>万円</h2>
@@ -141,7 +141,7 @@
       <div class="col-md-4 cost-edit-contents-right">
         <div class="contents-row">
           <!--結婚しないときの表示-->
-          <% if @plan.marriage == "しない" %>
+          <% if @plan.read_attribute_before_type_cast(:marriage) == 2 %>
             <div class="text-thin">
               <div class="bubble">
                 <div class="left-contents" >
@@ -165,7 +165,7 @@
               </div>
             </div>
           <!--結婚式をあげない時の表示-->
-          <% elsif @plan.wedding == "しない" %>
+          <% elsif @plan.read_attribute_before_type_cast(:wedding) == 2 %>
             <div class="bubble">
               <div class="left-contents" >
                 <h5>結婚費用</h5>
@@ -210,7 +210,7 @@
         </div>
         
         <div class="contents-row">
-          <% if @plan.myhome == "買わない" %>
+          <% if @plan.read_attribute_before_type_cast(:myhome) == 2 %>
             <div class="text-thin">
               <div class="bubble">
                 <div class="left-contents" >
@@ -259,7 +259,7 @@
         <div class="top-row">
           <div class="bottom">
             <div class="single-column-img">
-              <% if @plan.sons == 0 %>
+              <% if @plan.read_attribute_before_type_cast(:sons) == 0 %>
                 <div class="text-thin">
                   <div class="single-column">
                     <h5>出産費用</h5>
@@ -273,7 +273,7 @@
                     <%= image_tag 'icons/baby-thin.png' %>
                   </div>
                 </div>
-              <% elsif @plan.sons == 7 %>
+              <% elsif @plan.read_attribute_before_type_cast(:sons) == 7 %>
                 <div class="single-column">
                   <h5>出産費用</h5>
                   <h5>約<span>50</span>万円/人</h5>
@@ -288,7 +288,7 @@
               <% else %>
                 <div class="single-column">
                   <h5>出産費用</h5>
-                  <h5>約<span><%= @plan.sons*50 %></span>万円/<%= @plan.sons %>人</h5>
+                  <h5>約<span><%= @plan.read_attribute_before_type_cast(:sons)*50 %></span>万円/<%= @plan.sons %></h5>
                   <p>出産費用の総額</p>
                   <p>（入院料・室料差額・</p>
                   <p>分娩料・検査・薬剤料・</p>

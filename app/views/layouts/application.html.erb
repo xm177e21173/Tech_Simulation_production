@@ -40,7 +40,7 @@
             </li>
             <li>
               <div class="tooltip-mypage">
-                <%= link_to user_path(:id) do %>
+                <%= link_to user_path(session[:user_id]) do %>
                   <%= image_tag "icons/mypage.png" %>
                 <% end %>
                 <div class="description-mypage">マイページ</div>

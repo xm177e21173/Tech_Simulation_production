@@ -26,9 +26,9 @@ class CalsController < ApplicationController
   private
   # 教育資金の割り振り
   def edu_cost_simulate
-    i = @plan.first_son
+    i = @plan.when_first_son
     # 末子誕生の20~24年後（大学卒業）
-    j = @plan.last_son + 5
+    j = @plan.when_last_son + 5
     
     # 第一子誕生から末子大学卒業までの年数
     edu_span = j - i + 1
