@@ -238,7 +238,7 @@
                       //凡例名
                       label: "想定される費用(万円/年)",
                       //情報
-                      data: [<%= @graph_params[0] %>, <%= @graph_params[1] %>, <%= @graph_params[2] %>, <%= @graph_params[3] %>, <%= @graph_params[4] %>, <%= @graph_params[5] %>, <%= @graph_params[6] %>, <%= @graph_params[7] %>, <%= @graph_params[8] %>, <%= @graph_params[9] %>],
+                      data: [<%= @graph_params[0] / 5 %>, <%= @graph_params[1] / 5 %>, <%= @graph_params[2] / 5 %>, <%= @graph_params[3] / 5 %>, <%= @graph_params[4] / 5 %>, <%= @graph_params[5] / 5 %>, <%= @graph_params[6] / 5 %>, <%= @graph_params[7] / 5 %>, <%= @graph_params[8] / 5 %>, <%= @graph_params[9] / 5 %>],
                       //背景色
                       backgroundColor: "rgba(54,162,235,0.2)",
                       //線色
@@ -315,7 +315,7 @@
                             fontColor: "black",
                             beginAtZero: true,
                             suggestedMax: 300,
-                            stepSize: 100,
+                            stepSize: 50,
                             callback: function(val) {
                               return val + '万円/年';
                             }
