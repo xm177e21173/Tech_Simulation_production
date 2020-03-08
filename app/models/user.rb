@@ -40,6 +40,7 @@ class User < ApplicationRecord
     calc_edu_cost
     calc_old_cost
     calc_myhome_cost
+    calc_other_cost
     calc_total_cost
     calc_ave_cost
     @simu_params = [@graph_params, @total_params, @ave_params]
@@ -59,7 +60,7 @@ class User < ApplicationRecord
     single_edu_cost = @cost.edu_cost / i
     j = @plan.read_attribute_before_type_cast(:when_first_son) / 10
     # 65際までに末子が大学卒業する場合の処理
-    if @plan.read_attribute_before_type_cast(:when_first_son) / 10 <= 4
+    if @plan.read_attribute_before_type_cast(:when_last_son) / 10 <= 4
       i.times do
         @graph_params[j] = @graph_params[j] + single_edu_cost
         j += 1
@@ -68,9 +69,9 @@ class User < ApplicationRecord
     else
       # m：定年してから末子が大学卒業するまでの期間
       m = @plan.read_attribute_before_type_cast(:when_last_son) / 10 - 4
-      n = i - m
+      n = 10 - j
       n.times do
-        @graph_params[j]
+        @graph_params[j] += single_edu_cost
         j += 1
       end
       # 定年後にかかる教育費を加算
@@ -80,7 +81,7 @@ class User < ApplicationRecord
   
   # 老後の生活資金の割り振り
   def calc_old_cost
-    @graph_params[9] += @plan.severance - @cost.old_cost
+    @graph_params[9] = @graph_params[9] + @cost.old_cost - @plan.severance
   end
   
   # 住宅購入費の割り振り
@@ -97,13 +98,22 @@ class User < ApplicationRecord
       # 65歳までにローンを完済しない場合の処理
     else
       j = i - 3
-      m = 8 - i
+      m = 10 - i
       m.times do
-        @graph_params[j] += single_myhome_cost
-        j += 1
+        @graph_params[i] += single_myhome_cost
+        i += 1
       end
       # 定年後にかかる費用を加算
       @graph_params[9] += single_myhome_cost * j
+    end
+  end
+  
+  def calc_other_cost
+    single_other_cost = @cost.others / 10
+    i = 0
+    10.times do
+      @graph_params[i] += single_other_cost
+      i += 1
     end
   end
 
@@ -121,7 +131,7 @@ class User < ApplicationRecord
   def calc_ave_cost
     total_target = @cost.target - @plan.saving - @plan.severance
     @ave_params[0] += @plan.saving
-    single_target = total_target / 9
+    single_target = total_target / 10
     i = 0
     j = 1
     10.times do
